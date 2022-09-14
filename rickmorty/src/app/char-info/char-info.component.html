@@ -1,0 +1,19 @@
+<div class="container" *ngIf="data != null; else waiting">
+  <div class="row">
+    <div class="col-md-3">
+      <img src="{{data.image}}" class="card-img-top" alt="..." />
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{data.name}}</h5>
+        <p class="card-text">Status: {{data.status}}</p>
+        <p class="card-text">Species: {{data.species}}</p>
+        <p class="card-text">Gender: {{data.gender}}</p>
+        <p class="card-text">Origin: {{data.origin.name}}</p>
+        <p class="card-text">Location: {{data.location.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #waiting>Loading...</ng-template>
