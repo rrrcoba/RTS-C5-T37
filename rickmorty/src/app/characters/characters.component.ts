@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CharsService } from '../chars.service';
+import { Char } from '../models/char.model';
 
 @Component({
   selector: 'app-characters',
@@ -8,7 +9,7 @@ import { CharsService } from '../chars.service';
 })
 export class CharactersComponent implements OnInit {
 
-  chars:any = null;
+  chars?: Char[];
 
   constructor(private charsService: CharsService) {}
 
@@ -19,7 +20,7 @@ export class CharactersComponent implements OnInit {
         this.chars = result;
       },
       error => {
-        console.log('Problems');
+        console.log(error);
       }
     );
   }

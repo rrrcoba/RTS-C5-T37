@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CharsService } from '../chars.service';
-import { ActivatedRoute } from '@angular/router';
+import { Char } from '../models/char.model';
 
 @Component({
   selector: 'app-char-info',
@@ -9,22 +10,63 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CharInfoComponent implements OnInit {
 
-  data: any = null;
+  id: any;
 
-  id: any = this.route.snapshot.paramMap.get('id');
+  data: Char = {
+    name: '',
+    species: '',
+    gender: '',
+    origin: '',
+    image: ''
+  }
 
-  constructor(private charsService: CharsService, private route: ActivatedRoute) { }
+  constructor(private charsService: CharsService, private route: ActivatedRoute, private router: Router) { }
+
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id');
+
     this.charsService.getById(this.id)
     .subscribe(
       result => {
         this.data = result;
       },
       error => {
-        console.log('Problems');
+        console.log(error);
       }
     );
   }
 
+  changeStatus(status: boolean): void {
+    const data = {
+      name: this.data.name,
+      gender: this.data.gender,
+      species: this.data.species,
+      origin: this.data.origin,
+      image: this.data.image,
+      status: status
+    };
+
+    this.charsService.update(this.data.id, data)
+    .subscribe (
+      response => {
+        this.data.status = status;
+        console.log(response);
+    },
+    error => {
+      console.log(error);
+    });
+  }
+
+  deleteCharacter(): void {
+    this.charsService.deleteById(this.data.id)
+    .subscribe (
+      response => {
+        console.log(response);
+        this.router.navigate(['/characters']);
+    },
+    error => {
+      console.log(error);
+    });
+  }
 }

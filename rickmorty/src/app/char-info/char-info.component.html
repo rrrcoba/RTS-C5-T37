@@ -7,12 +7,14 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">{{data.name}}</h5>
-        <p class="card-text">Status: {{data.status}}</p>
         <p class="card-text">Species: {{data.species}}</p>
         <p class="card-text">Gender: {{data.gender}}</p>
         <p class="card-text">Origin: {{data.origin}}</p>
+        <p class="card-text">Status: {{data.status}}</p>
       </div>
-      <a routerLink="/mod/{{data.id}}" class="btn btn-success">Edit</a>
+      <button class="btn btn-danger" (click)="deleteCharacter()">Delete</button>
+      <button class="btn btn-warning" *ngIf="data.status" (click)="changeStatus(false)">Change status to Dead</button>
+      <button class="btn btn-success" *ngIf="!data.status" (click)="changeStatus(true)">Change status to Alive</button>
     </div>
   </div>
 </div>

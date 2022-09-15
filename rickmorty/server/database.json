@@ -1,15 +1,6 @@
 {
   "characters": [
     {
-      "id": 1,
-      "name": "Rick Sanchez",
-      "status": "Alive",
-      "species": "Human",
-      "gender": "Male",
-      "origin": "Earth",
-      "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-    },
-    {
       "id": 2,
       "name": "Morty Smith",
       "status": "Alive",
@@ -37,13 +28,22 @@
       "image": "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
     },
     {
-      "id": 5,
       "name": "Jerry Smith",
-      "status": "Alive",
-      "species": "Human",
       "gender": "Male",
-      "origin":"Earth (Replacement Dimension)",
-      "image": "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
+      "species": "Human",
+      "origin": "Earth (Replacement Dimension)",
+      "image": "https://rickandmortyapi.com/api/character/avatar/5.jpeg",
+      "status": true,
+      "id": 5
+    },
+    {
+      "name": "Rick Sanchez",
+      "gender": "Male",
+      "species": "Human",
+      "origin": "Earth",
+      "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+      "status": false,
+      "id": 6
     }
   ]
 }

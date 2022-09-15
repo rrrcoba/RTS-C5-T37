@@ -5,7 +5,6 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { CharInfoComponent } from './char-info/char-info.component';
 import { CharAddComponent } from './char-add/char-add.component';
-import { CharModComponent } from './char-mod/char-mod.component';
 
 const routes: Routes = [
   {
@@ -23,10 +22,6 @@ const routes: Routes = [
   {
     path: 'add',
     component: CharAddComponent
-  },
-  {
-    path: 'mod/:id',
-    component: CharModComponent
   },
   {
     path: 'about',
