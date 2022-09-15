@@ -4,23 +4,33 @@ import { CharactersComponent } from './characters/characters.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { CharInfoComponent } from './char-info/char-info.component';
+import { CharAddComponent } from './char-add/char-add.component';
+import { CharModComponent } from './char-mod/char-mod.component';
 
 const routes: Routes = [
-  {
-    path: 'characters',
-    component: CharactersComponent
-  },
   {
     path: '',
     component: HomeComponent
   },
   {
-    path: 'about',
-    component: AboutComponent
+    path: 'characters',
+    component: CharactersComponent
   },
   {
     path: 'characters/:id',
     component: CharInfoComponent
+  },
+  {
+    path: 'add',
+    component: CharAddComponent
+  },
+  {
+    path: 'mod/:id',
+    component: CharModComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   }
 
 ];
