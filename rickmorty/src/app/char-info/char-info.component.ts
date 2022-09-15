@@ -16,7 +16,7 @@ export class CharInfoComponent implements OnInit {
   constructor(private charsService: CharsService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.charsService.returnById(this.id)
+    this.charsService.getById(this.id)
     .subscribe(
       result => {
         this.data = result;
